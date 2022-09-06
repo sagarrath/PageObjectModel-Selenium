@@ -11,20 +11,20 @@ import com.ecomm.qa.base.TestBase;
 public class LoginPage extends TestBase{
 	//OR Object Repository
 	
-	@FindBy(xpath="//a[normalize-space()='Login']")
-	WebElement loginButton;
-
-	@FindBy(xpath="//input[@name=\'userId\']")
+	@FindBy(xpath="//input[@id='login']")
 	WebElement username;
+
+	//@FindBy(xpath="//input[@name=\'userId\']")
+//	WebElement username;
 	
-	@FindBy(xpath="//input[@name=\'password\']")
+	@FindBy(xpath="//input[@id='password']")
 	WebElement password;
 	
-	@FindBy(xpath="//span[@class=\'ng-star-inserted\']")
+	//@FindBy(xpath="//span[@class=\'ng-star-inserted\']")
 	WebElement loginbutton;
 	
-	@FindBy(xpath="//button[@text='logo']")
-	WebElement logo;
+	@FindBy(xpath="//button[contains(text(),'Log In')]")
+	WebElement submit;
 	
 	//How to initialize page factory
 
@@ -39,14 +39,19 @@ public class LoginPage extends TestBase{
 	}
 	
 	public boolean validateLogo() {
-		return logo.isDisplayed();
+		return submit.isDisplayed();
 	}
 	
 	public void login(String un, String pwd) {
-		loginButton.click();
+		//loginButton.click();
 		username.sendKeys(un);
 		password.sendKeys(pwd);
-		loginbutton.click();
+		submit.click();
+	}
+
+	public void HomePage(String property) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
